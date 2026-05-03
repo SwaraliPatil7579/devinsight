@@ -31,14 +31,17 @@ async def github_webhook(request: Request, db: Session = Depends(get_db)):
 async def jenkins_webhook(request: Request, db: Session = Depends(get_db)):
     payload = await request.json()
     status_map = {"SUCCESS": "success", "FAILURE": "failed", "ABORTED": "failed", "UNSTABLE": "failed"}
+    now = datetime.utcnow()
     deployment = Deployment(
         service_name=payload.get("name", "unknown"),
         environment=payload.get("environment", "production"),
         status=status_map.get(payload.get("build", {}).get("status", ""), "failed"),
         branch=payload.get("build", {}).get("scm", {}).get("branch", ""),
         triggered_by=payload.get("build", {}).get("parameters", {}).get("triggered_by"),
+        started_at=now,
+        finished_at=now,
         source="jenkins"
     )
     db.add(deployment)
     db.commit()
-    return {"status": "recorded"}
+    return {"status": "recorded", "deployment_id": str(deployment.id)}

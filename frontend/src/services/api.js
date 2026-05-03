@@ -1,9 +1,11 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: 'http://localhost:8000',
+  baseURL: 'http://localhost:8002',
   timeout: 10000,
 })
+
+export default api
 
 export const analyticsService = {
   getSuccessRate: (days = 30) => api.get(`/analytics/success-rate?days=${days}`),
@@ -23,5 +25,3 @@ export const deploymentService = {
   create: (data) => api.post('/deployments/', data),
   getServices: () => api.get('/deployments/services'),
 }
-
-export default api

@@ -1,0 +1,307 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 720" width="1100" height="720" font-family="'Segoe UI', Arial, sans-serif">
+
+  <!-- Background -->
+  <rect width="1100" height="720" fill="#ffffff" rx="0"/>
+
+  <!-- Title -->
+  <text x="550" y="38" text-anchor="middle" font-size="17" font-weight="700" fill="#1a1a2e">DevInsight — System Architecture</text>
+  <line x1="40" y1="52" x2="1060" y2="52" stroke="#dee2e6" stroke-width="1.5"/>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- LANE BACKGROUNDS -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+
+  <!-- Lane 1: CI/CD Sources -->
+  <rect x="30" y="62" width="160" height="640" rx="10" fill="#f0f4ff" stroke="#c5cfe8" stroke-width="1.2"/>
+  <text x="110" y="82" text-anchor="middle" font-size="11" font-weight="600" fill="#3b5bdb">CI/CD Sources</text>
+
+  <!-- Lane 2: Webhook Layer -->
+  <rect x="205" y="62" width="160" height="640" rx="10" fill="#f3faf6" stroke="#b2dfcc" stroke-width="1.2"/>
+  <text x="285" y="82" text-anchor="middle" font-size="11" font-weight="600" fill="#2b8a3e">Webhook Layer</text>
+
+  <!-- Lane 3: FastAPI Backend -->
+  <rect x="380" y="62" width="220" height="640" rx="10" fill="#fff9f0" stroke="#ffd8a8" stroke-width="1.2"/>
+  <text x="490" y="82" text-anchor="middle" font-size="11" font-weight="600" fill="#e67700">FastAPI Backend</text>
+
+  <!-- Lane 4: Analytics Engine -->
+  <rect x="615" y="62" width="200" height="640" rx="10" fill="#fff0f6" stroke="#fcc2d7" stroke-width="1.2"/>
+  <text x="715" y="82" text-anchor="middle" font-size="11" font-weight="600" fill="#c2255c">Analytics Engine</text>
+
+  <!-- Lane 5: Database -->
+  <rect x="830" y="62" width="140" height="310" rx="10" fill="#f8f0ff" stroke="#d8b4fe" stroke-width="1.2"/>
+  <text x="900" y="82" text-anchor="middle" font-size="11" font-weight="600" fill="#7c3aed">Database</text>
+
+  <!-- Lane 6: Frontend -->
+  <rect x="830" y="385" width="140" height="317" rx="10" fill="#f0faff" stroke="#a5d8ff" stroke-width="1.2"/>
+  <text x="900" y="405" text-anchor="middle" font-size="11" font-weight="600" fill="#1971c2">React Frontend</text>
+
+  <!-- Lane 7: User -->
+  <rect x="985" y="62" width="85" height="640" rx="10" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1.2"/>
+  <text x="1027" y="82" text-anchor="middle" font-size="11" font-weight="600" fill="#495057">User</text>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- CI/CD SOURCE BOXES -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+
+  <!-- GitHub Actions -->
+  <rect x="45" y="105" width="130" height="52" rx="8" fill="#ffffff" stroke="#3b5bdb" stroke-width="1.5"/>
+  <text x="110" y="126" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a2e">GitHub Actions</text>
+  <text x="110" y="143" text-anchor="middle" font-size="10" fill="#666">workflow_run event</text>
+
+  <!-- Jenkins -->
+  <rect x="45" y="175" width="130" height="52" rx="8" fill="#ffffff" stroke="#3b5bdb" stroke-width="1.5"/>
+  <text x="110" y="196" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a2e">Jenkins</text>
+  <text x="110" y="213" text-anchor="middle" font-size="10" fill="#666">build notification</text>
+
+  <!-- Manual Entry -->
+  <rect x="45" y="245" width="130" height="52" rx="8" fill="#ffffff" stroke="#3b5bdb" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="110" y="266" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a2e">Manual Entry</text>
+  <text x="110" y="283" text-anchor="middle" font-size="10" fill="#666">UI form input</text>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- WEBHOOK LAYER BOXES -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+
+  <!-- POST /webhooks/github -->
+  <rect x="218" y="105" width="134" height="52" rx="8" fill="#ffffff" stroke="#2b8a3e" stroke-width="1.5"/>
+  <text x="285" y="124" text-anchor="middle" font-size="11" font-weight="600" fill="#1a1a2e">POST</text>
+  <text x="285" y="140" text-anchor="middle" font-size="10" fill="#2b8a3e">/webhooks/github</text>
+  <text x="285" y="153" text-anchor="middle" font-size="9" fill="#888">normalize payload</text>
+
+  <!-- POST /webhooks/jenkins -->
+  <rect x="218" y="175" width="134" height="52" rx="8" fill="#ffffff" stroke="#2b8a3e" stroke-width="1.5"/>
+  <text x="285" y="194" text-anchor="middle" font-size="11" font-weight="600" fill="#1a1a2e">POST</text>
+  <text x="285" y="210" text-anchor="middle" font-size="10" fill="#2b8a3e">/webhooks/jenkins</text>
+  <text x="285" y="223" text-anchor="middle" font-size="9" fill="#888">normalize payload</text>
+
+  <!-- POST /deployments -->
+  <rect x="218" y="245" width="134" height="52" rx="8" fill="#ffffff" stroke="#2b8a3e" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="285" y="264" text-anchor="middle" font-size="11" font-weight="600" fill="#1a1a2e">POST</text>
+  <text x="285" y="280" text-anchor="middle" font-size="10" fill="#2b8a3e">/deployments/</text>
+  <text x="285" y="293" text-anchor="middle" font-size="9" fill="#888">manual record</text>
+
+  <!-- Normalizer box -->
+  <rect x="218" y="325" width="134" height="44" rx="8" fill="#e6fcf5" stroke="#2b8a3e" stroke-width="1.5"/>
+  <text x="285" y="344" text-anchor="middle" font-size="11" font-weight="600" fill="#2b8a3e">Payload Normalizer</text>
+  <text x="285" y="360" text-anchor="middle" font-size="9" fill="#555">→ Deployment schema</text>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- FASTAPI BACKEND BOXES -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+
+  <!-- CORS Middleware -->
+  <rect x="393" y="95" width="194" height="34" rx="6" fill="#fff3bf" stroke="#f59f00" stroke-width="1.2"/>
+  <text x="490" y="117" text-anchor="middle" font-size="10" font-weight="600" fill="#e67700">CORS Middleware (allow: localhost:5173)</text>
+
+  <!-- Deployments Router -->
+  <rect x="393" y="145" width="194" height="52" rx="8" fill="#ffffff" stroke="#e67700" stroke-width="1.5"/>
+  <text x="490" y="165" text-anchor="middle" font-size="11" font-weight="600" fill="#1a1a2e">Deployments Router</text>
+  <text x="490" y="181" text-anchor="middle" font-size="9" fill="#888">GET /deployments/  POST /deployments/</text>
+  <text x="490" y="193" text-anchor="middle" font-size="9" fill="#888">GET /deployments/services</text>
+
+  <!-- Analytics Router -->
+  <rect x="393" y="213" width="194" height="64" rx="8" fill="#ffffff" stroke="#e67700" stroke-width="1.5"/>
+  <text x="490" y="233" text-anchor="middle" font-size="11" font-weight="600" fill="#1a1a2e">Analytics Router</text>
+  <text x="490" y="249" text-anchor="middle" font-size="9" fill="#888">GET /analytics/success-rate</text>
+  <text x="490" y="261" text-anchor="middle" font-size="9" fill="#888">GET /analytics/mttr</text>
+  <text x="490" y="273" text-anchor="middle" font-size="9" fill="#888">GET /analytics/trends  · /patterns</text>
+
+  <!-- Webhooks Router -->
+  <rect x="393" y="293" width="194" height="52" rx="8" fill="#ffffff" stroke="#e67700" stroke-width="1.5"/>
+  <text x="490" y="313" text-anchor="middle" font-size="11" font-weight="600" fill="#1a1a2e">Webhooks Router</text>
+  <text x="490" y="329" text-anchor="middle" font-size="9" fill="#888">POST /webhooks/github</text>
+  <text x="490" y="341" text-anchor="middle" font-size="9" fill="#888">POST /webhooks/jenkins</text>
+
+  <!-- SQLAlchemy ORM -->
+  <rect x="393" y="362" width="194" height="36" rx="6" fill="#fff9db" stroke="#f59f00" stroke-width="1.2"/>
+  <text x="490" y="376" text-anchor="middle" font-size="10" font-weight="600" fill="#e67700">SQLAlchemy ORM</text>
+  <text x="490" y="391" text-anchor="middle" font-size="9" fill="#888">Session per request · get_db()</text>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- ANALYTICS ENGINE BOXES -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+
+  <!-- Success Rate -->
+  <rect x="628" y="105" width="174" height="56" rx="8" fill="#ffffff" stroke="#c2255c" stroke-width="1.5"/>
+  <text x="715" y="125" text-anchor="middle" font-size="11" font-weight="600" fill="#1a1a2e">Success Rate</text>
+  <text x="715" y="141" text-anchor="middle" font-size="9" fill="#888">successful / total × 100</text>
+  <text x="715" y="154" text-anchor="middle" font-size="9" fill="#888">window: last N days</text>
+
+  <!-- MTTR -->
+  <rect x="628" y="177" width="174" height="56" rx="8" fill="#ffffff" stroke="#c2255c" stroke-width="1.5"/>
+  <text x="715" y="197" text-anchor="middle" font-size="11" font-weight="600" fill="#1a1a2e">MTTR Calculator</text>
+  <text x="715" y="213" text-anchor="middle" font-size="9" fill="#888">failure → next success (24h)</text>
+  <text x="715" y="226" text-anchor="middle" font-size="9" fill="#888">mean recovery time (min)</text>
+
+  <!-- Failure Trends -->
+  <rect x="628" y="249" width="174" height="56" rx="8" fill="#ffffff" stroke="#c2255c" stroke-width="1.5"/>
+  <text x="715" y="269" text-anchor="middle" font-size="11" font-weight="600" fill="#1a1a2e">Failure Trends</text>
+  <text x="715" y="285" text-anchor="middle" font-size="9" fill="#888">daily total vs failed</text>
+  <text x="715" y="298" text-anchor="middle" font-size="9" fill="#888">time-series aggregation</text>
+
+  <!-- Pattern Detector -->
+  <rect x="628" y="321" width="174" height="68" rx="8" fill="#fff0f6" stroke="#c2255c" stroke-width="2"/>
+  <text x="715" y="341" text-anchor="middle" font-size="11" font-weight="700" fill="#c2255c">Pattern Detector</text>
+  <text x="715" y="357" text-anchor="middle" font-size="9" fill="#888">failures ≥ 3 → pattern</text>
+  <text x="715" y="370" text-anchor="middle" font-size="9" fill="#888">≥ 7 → HIGH risk</text>
+  <text x="715" y="383" text-anchor="middle" font-size="9" fill="#888">sorted by failure count</text>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- DATABASE BOXES -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+
+  <!-- PostgreSQL -->
+  <rect x="845" y="100" width="110" height="60" rx="8" fill="#ffffff" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="900" y="122" text-anchor="middle" font-size="11" font-weight="600" fill="#1a1a2e">PostgreSQL</text>
+  <text x="900" y="138" text-anchor="middle" font-size="9" fill="#888">TimescaleDB</text>
+  <text x="900" y="151" text-anchor="middle" font-size="9" fill="#7c3aed">port 5432</text>
+
+  <!-- deployments table -->
+  <rect x="845" y="178" width="110" height="80" rx="8" fill="#f3f0ff" stroke="#7c3aed" stroke-width="1.2"/>
+  <text x="900" y="196" text-anchor="middle" font-size="10" font-weight="600" fill="#7c3aed">deployments</text>
+  <text x="900" y="211" text-anchor="middle" font-size="9" fill="#555">id · service_name</text>
+  <text x="900" y="224" text-anchor="middle" font-size="9" fill="#555">environment · status</text>
+  <text x="900" y="237" text-anchor="middle" font-size="9" fill="#555">started_at · source</text>
+  <text x="900" y="250" text-anchor="middle" font-size="9" fill="#555">error_message</text>
+
+  <!-- Redis -->
+  <rect x="845" y="276" width="110" height="52" rx="8" fill="#ffffff" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="900" y="297" text-anchor="middle" font-size="11" font-weight="600" fill="#1a1a2e">Redis</text>
+  <text x="900" y="313" text-anchor="middle" font-size="9" fill="#888">cache / future use</text>
+  <text x="900" y="325" text-anchor="middle" font-size="9" fill="#7c3aed">port 6379</text>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- FRONTEND BOXES -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+
+  <!-- Dashboard page -->
+  <rect x="845" y="420" width="110" height="52" rx="8" fill="#ffffff" stroke="#1971c2" stroke-width="1.5"/>
+  <text x="900" y="440" text-anchor="middle" font-size="11" font-weight="600" fill="#1a1a2e">Dashboard</text>
+  <text x="900" y="456" text-anchor="middle" font-size="9" fill="#888">metrics · trends chart</text>
+  <text x="900" y="468" text-anchor="middle" font-size="9" fill="#888">pattern alerts</text>
+
+  <!-- Deployments page -->
+  <rect x="845" y="488" width="110" height="52" rx="8" fill="#ffffff" stroke="#1971c2" stroke-width="1.5"/>
+  <text x="900" y="508" text-anchor="middle" font-size="11" font-weight="600" fill="#1a1a2e">Deployments</text>
+  <text x="900" y="524" text-anchor="middle" font-size="9" fill="#888">table · filters</text>
+  <text x="900" y="536" text-anchor="middle" font-size="9" fill="#888">manual entry form</text>
+
+  <!-- Simulator page -->
+  <rect x="845" y="556" width="110" height="52" rx="8" fill="#ffffff" stroke="#1971c2" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="900" y="576" text-anchor="middle" font-size="11" font-weight="600" fill="#1a1a2e">Simulator</text>
+  <text x="900" y="592" text-anchor="middle" font-size="9" fill="#888">fire test webhooks</text>
+  <text x="900" y="604" text-anchor="middle" font-size="9" fill="#888">activity log</text>
+
+  <!-- Axios / api.js -->
+  <rect x="845" y="624" width="110" height="36" rx="6" fill="#dbe4ff" stroke="#1971c2" stroke-width="1.2"/>
+  <text x="900" y="638" text-anchor="middle" font-size="10" font-weight="600" fill="#1971c2">Axios · api.js</text>
+  <text x="900" y="652" text-anchor="middle" font-size="9" fill="#555">baseURL :8001</text>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- USER BOX -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <rect x="997" y="420" width="62" height="52" rx="8" fill="#ffffff" stroke="#868e96" stroke-width="1.5"/>
+  <text x="1028" y="443" text-anchor="middle" font-size="20">👤</text>
+  <text x="1028" y="462" text-anchor="middle" font-size="10" fill="#495057">Browser</text>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- ARROWS -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+
+  <!-- GitHub Actions → /webhooks/github -->
+  <line x1="175" y1="131" x2="218" y2="131" stroke="#3b5bdb" stroke-width="1.5" marker-end="url(#arr-blue)"/>
+  <!-- Jenkins → /webhooks/jenkins -->
+  <line x1="175" y1="201" x2="218" y2="201" stroke="#3b5bdb" stroke-width="1.5" marker-end="url(#arr-blue)"/>
+  <!-- Manual → /deployments POST -->
+  <line x1="175" y1="271" x2="218" y2="271" stroke="#3b5bdb" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr-blue)"/>
+
+  <!-- Webhook endpoints → Normalizer -->
+  <line x1="285" y1="297" x2="285" y2="325" stroke="#2b8a3e" stroke-width="1.5" marker-end="url(#arr-green)"/>
+
+  <!-- Normalizer → Webhooks Router (FastAPI) -->
+  <line x1="352" y1="347" x2="393" y2="325" stroke="#2b8a3e" stroke-width="1.5" marker-end="url(#arr-green)"/>
+
+  <!-- Manual /deployments → Deployments Router -->
+  <line x1="352" y1="271" x2="393" y2="185" stroke="#2b8a3e" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr-green)"/>
+
+  <!-- Analytics Router → Analytics Engine modules -->
+  <line x1="587" y1="245" x2="628" y2="245" stroke="#e67700" stroke-width="1.5" marker-end="url(#arr-orange)"/>
+  <line x1="587" y1="233" x2="628" y2="133" stroke="#e67700" stroke-width="1.5" marker-end="url(#arr-orange)"/>
+  <line x1="587" y1="245" x2="628" y2="205" stroke="#e67700" stroke-width="1.5" marker-end="url(#arr-orange)"/>
+  <line x1="587" y1="257" x2="628" y2="277" stroke="#e67700" stroke-width="1.5" marker-end="url(#arr-orange)"/>
+  <line x1="587" y1="265" x2="628" y2="345" stroke="#e67700" stroke-width="1.5" marker-end="url(#arr-orange)"/>
+
+  <!-- ORM → PostgreSQL -->
+  <line x1="587" y1="380" x2="845" y2="200" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#arr-purple)"/>
+
+  <!-- Analytics Engine → PostgreSQL (query) -->
+  <line x1="802" y1="200" x2="845" y2="200" stroke="#c2255c" stroke-width="1.5" marker-end="url(#arr-pink)"/>
+
+  <!-- Frontend Axios → FastAPI -->
+  <line x1="955" y1="642" x2="490" y2="642" stroke="#1971c2" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <line x1="490" y1="642" x2="490" y2="398" stroke="#1971c2" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arr-blue2)"/>
+
+  <!-- FastAPI → Frontend (response) -->
+  <line x1="587" y1="370" x2="845" y2="460" stroke="#1971c2" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#arr-blue2)"/>
+
+  <!-- User → Frontend -->
+  <line x1="997" y1="446" x2="955" y2="446" stroke="#868e96" stroke-width="1.5" marker-end="url(#arr-gray)"/>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- ARROW MARKERS -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <defs>
+    <marker id="arr-blue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#3b5bdb"/>
+    </marker>
+    <marker id="arr-green" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#2b8a3e"/>
+    </marker>
+    <marker id="arr-orange" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#e67700"/>
+    </marker>
+    <marker id="arr-purple" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#7c3aed"/>
+    </marker>
+    <marker id="arr-pink" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#c2255c"/>
+    </marker>
+    <marker id="arr-blue2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#1971c2"/>
+    </marker>
+    <marker id="arr-gray" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#868e96"/>
+    </marker>
+  </defs>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- LEGEND -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <rect x="30" y="660" width="1040" height="48" rx="8" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1"/>
+  <text x="50" y="678" font-size="10" font-weight="600" fill="#495057">Legend:</text>
+  <line x1="100" y1="675" x2="130" y2="675" stroke="#3b5bdb" stroke-width="1.5" marker-end="url(#arr-blue)"/>
+  <text x="135" y="679" font-size="10" fill="#495057">Webhook event</text>
+  <line x1="220" y1="675" x2="250" y2="675" stroke="#2b8a3e" stroke-width="1.5" marker-end="url(#arr-green)"/>
+  <text x="255" y="679" font-size="10" fill="#495057">Ingestion flow</text>
+  <line x1="340" y1="675" x2="370" y2="675" stroke="#e67700" stroke-width="1.5" marker-end="url(#arr-orange)"/>
+  <text x="375" y="679" font-size="10" fill="#495057">Analytics call</text>
+  <line x1="455" y1="675" x2="485" y2="675" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#arr-purple)"/>
+  <text x="490" y="679" font-size="10" fill="#495057">DB write (ORM)</text>
+  <line x1="575" y1="675" x2="605" y2="675" stroke="#c2255c" stroke-width="1.5" marker-end="url(#arr-pink)"/>
+  <text x="610" y="679" font-size="10" fill="#495057">DB query</text>
+  <line x1="680" y1="675" x2="710" y2="675" stroke="#1971c2" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr-blue2)"/>
+  <text x="715" y="679" font-size="10" fill="#495057">HTTP REST (Axios)</text>
+  <line x1="820" y1="675" x2="850" y2="675" stroke="#3b5bdb" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="855" y="679" font-size="10" fill="#495057">Dashed = optional / future</text>
+
+  <!-- second legend row -->
+  <text x="50" y="698" font-size="10" font-weight="600" fill="#495057">Stack:</text>
+  <text x="85" y="698" font-size="10" fill="#495057">React 19 + Vite 8 + Recharts 3 + Axios</text>
+  <text x="340" y="698" font-size="10" fill="#495057">|</text>
+  <text x="355" y="698" font-size="10" fill="#495057">Python FastAPI 0.135 + SQLAlchemy 2.0 + Uvicorn</text>
+  <text x="660" y="698" font-size="10" fill="#495057">|</text>
+  <text x="675" y="698" font-size="10" fill="#495057">PostgreSQL (TimescaleDB) + Redis 7</text>
+  <text x="900" y="698" font-size="10" fill="#495057">|</text>
+  <text x="915" y="698" font-size="10" fill="#495057">Docker Compose</text>
+
+</svg>

@@ -21,6 +21,7 @@ def get_mttr(db: Session, days: int = 30) -> dict:
     ).order_by(Deployment.started_at).all()
 
     recovery_times = []
+    events = []
     for failure in failed:
         next_success = db.query(Deployment).filter(
             and_(
@@ -31,11 +32,31 @@ def get_mttr(db: Session, days: int = 30) -> dict:
             )
         ).order_by(Deployment.started_at).first()
         if next_success:
-            delta = (next_success.started_at - failure.started_at).total_seconds() / 60
+            delta = round((next_success.started_at - failure.started_at).total_seconds() / 60, 1)
             recovery_times.append(delta)
+            events.append({
+                "service": failure.service_name,
+                # failed deployment evidence
+                "failed_id":          str(failure.id),
+                "failed_at":          failure.started_at.isoformat() + "Z",
+                "failed_branch":      failure.branch or "—",
+                "failed_triggered_by": failure.triggered_by or "—",
+                "failed_source":      failure.source or "—",
+                "error_message":      failure.error_message or None,
+                # recovery deployment evidence
+                "recovery_id":          str(next_success.id),
+                "recovered_at":         next_success.started_at.isoformat() + "Z",
+                "recovery_branch":      next_success.branch or "—",
+                "recovery_triggered_by": next_success.triggered_by or "—",
+                "recovery_source":      next_success.source or "—",
+                # computed
+                "recovery_minutes": delta,
+            })
 
     avg_mttr = round(sum(recovery_times) / len(recovery_times), 1) if recovery_times else 0
-    return {"mttr_minutes": avg_mttr, "sample_count": len(recovery_times)}
+    # sort most recent first
+    events.sort(key=lambda x: x["failed_at"], reverse=True)
+    return {"mttr_minutes": avg_mttr, "sample_count": len(recovery_times), "events": events}
 
 def get_failure_trends(db: Session, days: int = 30) -> list:
     since = datetime.utcnow() - timedelta(days=days)

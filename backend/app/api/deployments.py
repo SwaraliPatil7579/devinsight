@@ -54,8 +54,8 @@ def get_all_deployments(
             "status": d.status,
             "branch": d.branch,
             "triggered_by": d.triggered_by,
-            "started_at": str(d.started_at),
-            "finished_at": str(d.finished_at) if d.finished_at else None,
+            "started_at": d.started_at.isoformat() + "Z",
+            "finished_at": (d.finished_at.isoformat() + "Z") if d.finished_at else None,
             "error_message": d.error_message,
             "source": d.source,
         }
@@ -64,14 +64,15 @@ def get_all_deployments(
 
 @router.post("/")
 def create_deployment(payload: DeploymentCreate, db: Session = Depends(get_db)):
+    now = datetime.utcnow()
     deployment = Deployment(
         service_name=payload.service_name,
         environment=payload.environment,
         status=payload.status,
         branch=payload.branch,
         triggered_by=payload.triggered_by,
-        started_at=datetime.utcnow(),
-        finished_at=datetime.utcnow(),
+        started_at=now,
+        finished_at=now if payload.status != "running" else None,
         error_message=payload.error_message,
         source="manual"
     )
